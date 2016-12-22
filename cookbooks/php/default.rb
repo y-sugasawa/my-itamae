@@ -5,6 +5,7 @@ execute 'install php' do
     rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
     yum -y install --enablerepo=remi,remi-php56 php php-devel php-mbstring php-pdo php-gd php-xml
 EOS
+  not_if "php -v"
 end
 
 execute 'install composer' do
@@ -13,4 +14,5 @@ execute 'install composer' do
     curl -sS https://getcomposer.org/installer | php
     mv composer.phar /usr/local/bin/composer
 EOS
+  not_if "composer -V"
 end
