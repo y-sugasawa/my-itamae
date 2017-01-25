@@ -3,7 +3,7 @@ execute 'install php' do
   command <<"EOS"
     yum -y install epel-release
     rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-    yum -y install --enablerepo=remi,remi-php56 php php-devel php-mbstring php-pdo php-gd php-xml php-fpm
+    yum -y install --enablerepo=remi,remi-php70 php php-devel php-mbstring php-pdo php-gd php-xml php-fpm
 EOS
   not_if "php -v"
 end
