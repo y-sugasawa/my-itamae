@@ -25,3 +25,7 @@ execute 'groupinstall' do
 end
 
 include_recipe 'selinux::disabled'
+
+service 'iptables' do
+  action [:disable, :stop]
+end
